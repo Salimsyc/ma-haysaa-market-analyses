@@ -1,0 +1,1727 @@
+<!DOCTYPE html>
+<html lang="so">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Ma Haysaa? — Sahanka</title>
+
+  <!-- Premium typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    :root {
+      --primary: #087443;
+      --primary-dark: #055b34;
+      --primary-light: #eaf7f0;
+
+      --text: #17211b;
+      --muted: #66736b;
+      --border: #e1e8e3;
+
+      --background: #f5f8f6;
+      --white: #ffffff;
+
+      --danger: #c0392b;
+
+      --radius-lg: 24px;
+      --radius-md: 14px;
+      --radius-sm: 11px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(
+          circle at top left,
+          rgba(8, 116, 67, 0.07),
+          transparent 35%
+        ),
+        var(--background);
+
+      color: var(--text);
+
+      font-family:
+        "DM Sans",
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+      padding: 40px 20px;
+    }
+
+    /* --------------------------------
+       PAGE
+    -------------------------------- */
+
+    .page {
+      width: 100%;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    /* --------------------------------
+       BRAND
+    -------------------------------- */
+
+    .brand {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .logo {
+      width: 64px;
+      height: 64px;
+
+      margin: 0 auto 18px;
+
+      border-radius: 18px;
+
+      background: var(--primary-light);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 31px;
+
+      box-shadow:
+        0 8px 25px rgba(8, 116, 67, 0.08);
+    }
+
+    .brand-name {
+      font-family:
+        "Plus Jakarta Sans",
+        sans-serif;
+
+      font-size: 31px;
+      line-height: 1.15;
+
+      font-weight: 800;
+
+      letter-spacing: -0.8px;
+
+      color: var(--primary-dark);
+
+      margin-bottom: 9px;
+    }
+
+    .tagline {
+      font-size: 15px;
+      line-height: 1.6;
+
+      color: var(--muted);
+
+      max-width: 500px;
+
+      margin: 0 auto;
+    }
+
+    /* --------------------------------
+       CARD
+    -------------------------------- */
+
+    .card {
+      background: var(--white);
+
+      border: 1px solid rgba(8, 116, 67, 0.07);
+
+      border-radius: var(--radius-lg);
+
+      padding: 34px;
+
+      box-shadow:
+        0 18px 55px rgba(20, 45, 32, 0.08);
+    }
+
+    /* --------------------------------
+       INTRO
+    -------------------------------- */
+
+    .intro {
+      padding-bottom: 25px;
+
+      border-bottom: 1px solid #edf1ee;
+
+      margin-bottom: 27px;
+    }
+
+    .intro-title {
+      font-family:
+        "Plus Jakarta Sans",
+        sans-serif;
+
+      font-size: 18px;
+
+      font-weight: 700;
+
+      margin-bottom: 7px;
+
+      letter-spacing: -0.2px;
+    }
+
+    .intro-text {
+      color: var(--muted);
+
+      font-size: 14px;
+
+      line-height: 1.65;
+    }
+
+    /* --------------------------------
+       QUESTIONS
+    -------------------------------- */
+
+    .question {
+      margin-bottom: 27px;
+    }
+
+    .question:last-child {
+      margin-bottom: 0;
+    }
+
+    .question-title {
+      display: block;
+
+      font-size: 15px;
+
+      font-weight: 700;
+
+      line-height: 1.5;
+
+      margin-bottom: 11px;
+    }
+
+    .required {
+      color: var(--danger);
+      margin-left: 2px;
+    }
+
+    .question-help {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: -5px;
+      margin-bottom: 11px;
+    }
+
+    /* --------------------------------
+       OPTIONS
+    -------------------------------- */
+
+    .options {
+      display: grid;
+      gap: 9px;
+    }
+
+    .option {
+      position: relative;
+    }
+
+    .option input {
+      position: absolute;
+
+      opacity: 0;
+
+      width: 1px;
+      height: 1px;
+    }
+
+    .option label {
+      position: relative;
+
+      display: flex;
+
+      align-items: center;
+
+      min-height: 49px;
+
+      padding: 12px 15px;
+
+      border: 1px solid var(--border);
+
+      border-radius: var(--radius-sm);
+
+      background: #fff;
+
+      cursor: pointer;
+
+      font-size: 14px;
+
+      color: #334038;
+
+      transition:
+        border-color 0.18s ease,
+        background 0.18s ease,
+        box-shadow 0.18s ease,
+        transform 0.18s ease;
+    }
+
+    .option label:hover {
+      border-color: #9fcbb3;
+
+      background: #fbfdfc;
+    }
+
+    .option input:checked + label {
+      border-color: var(--primary);
+
+      background: var(--primary-light);
+
+      color: var(--primary-dark);
+
+      box-shadow:
+        0 0 0 1px rgba(8, 116, 67, 0.08);
+    }
+
+    .option input:focus-visible + label {
+      outline: 3px solid rgba(8, 116, 67, 0.18);
+      outline-offset: 2px;
+    }
+
+    /* --------------------------------
+       TEXT INPUTS
+    -------------------------------- */
+
+    .text-input {
+      width: 100%;
+
+      min-height: 50px;
+
+      border: 1px solid var(--border);
+
+      border-radius: var(--radius-sm);
+
+      background: #fff;
+
+      padding: 13px 15px;
+
+      font-family: inherit;
+
+      font-size: 14px;
+
+      color: var(--text);
+
+      outline: none;
+
+      transition:
+        border-color 0.18s ease,
+        box-shadow 0.18s ease;
+    }
+
+    .text-input::placeholder {
+      color: #9aa49e;
+    }
+
+    .text-input:focus {
+      border-color: var(--primary);
+
+      box-shadow:
+        0 0 0 3px rgba(8, 116, 67, 0.10);
+    }
+
+    textarea.text-input {
+      min-height: 95px;
+
+      resize: vertical;
+    }
+
+    /* --------------------------------
+       HIDDEN
+    -------------------------------- */
+
+    .hidden {
+      display: none !important;
+    }
+
+    /* --------------------------------
+       SECTION TRANSITION
+    -------------------------------- */
+
+    .conditional-section {
+      animation: appear 0.25s ease;
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(5px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* --------------------------------
+       DIVIDER
+    -------------------------------- */
+
+    .section-divider {
+      height: 1px;
+
+      background: #edf1ee;
+
+      margin: 30px 0;
+    }
+
+    /* --------------------------------
+       TESTER BOX
+    -------------------------------- */
+
+    .tester-box {
+      background: #f8fbf9;
+
+      border: 1px solid #e2ece6;
+
+      border-radius: 16px;
+
+      padding: 18px;
+
+      margin-top: 14px;
+    }
+
+    .tester-box-title {
+      font-size: 14px;
+
+      font-weight: 700;
+
+      margin-bottom: 5px;
+    }
+
+    .tester-box-text {
+      font-size: 12px;
+
+      line-height: 1.55;
+
+      color: var(--muted);
+
+      margin-bottom: 16px;
+    }
+
+    /* --------------------------------
+       SUBMIT
+    -------------------------------- */
+
+    .submit-area {
+      margin-top: 30px;
+
+      padding-top: 25px;
+
+      border-top: 1px solid #edf1ee;
+    }
+
+    .submit-btn {
+      width: 100%;
+
+      min-height: 53px;
+
+      border: none;
+
+      border-radius: 13px;
+
+      background: var(--primary);
+
+      color: #fff;
+
+      font-family:
+        "DM Sans",
+        sans-serif;
+
+      font-size: 15px;
+
+      font-weight: 700;
+
+      cursor: pointer;
+
+      box-shadow:
+        0 8px 20px rgba(8, 116, 67, 0.18);
+
+      transition:
+        background 0.18s ease,
+        transform 0.18s ease,
+        box-shadow 0.18s ease;
+    }
+
+    .submit-btn:hover {
+      background: var(--primary-dark);
+
+      transform: translateY(-1px);
+
+      box-shadow:
+        0 11px 25px rgba(8, 116, 67, 0.22);
+    }
+
+    .submit-btn:active {
+      transform: translateY(0);
+    }
+
+    .submit-btn:disabled {
+      opacity: 0.65;
+
+      cursor: not-allowed;
+
+      transform: none;
+    }
+
+    .privacy-note {
+      text-align: center;
+
+      font-size: 11px;
+
+      line-height: 1.55;
+
+      color: #89948d;
+
+      margin-top: 12px;
+    }
+
+    /* --------------------------------
+       SUCCESS
+    -------------------------------- */
+
+    .success {
+      text-align: center;
+
+      padding: 28px 8px 15px;
+    }
+
+    .success-icon {
+      width: 72px;
+      height: 72px;
+
+      margin: 0 auto 20px;
+
+      border-radius: 50%;
+
+      background: var(--primary-light);
+
+      color: var(--primary);
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      font-size: 32px;
+
+      font-weight: 700;
+
+      box-shadow:
+        0 8px 25px rgba(8, 116, 67, 0.10);
+    }
+
+    .success-title {
+      font-family:
+        "Plus Jakarta Sans",
+        sans-serif;
+
+      font-size: 24px;
+
+      font-weight: 800;
+
+      letter-spacing: -0.4px;
+
+      color: var(--primary-dark);
+
+      margin-bottom: 9px;
+    }
+
+    .success-text {
+      max-width: 440px;
+
+      margin: 0 auto;
+
+      color: var(--muted);
+
+      font-size: 14px;
+
+      line-height: 1.7;
+    }
+
+    .success-badge {
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 6px;
+
+      margin-top: 20px;
+
+      padding: 8px 13px;
+
+      border-radius: 999px;
+
+      background: var(--primary-light);
+
+      color: var(--primary-dark);
+
+      font-size: 12px;
+
+      font-weight: 600;
+    }
+
+    /* --------------------------------
+       FOOTER
+    -------------------------------- */
+
+    .footer {
+      text-align: center;
+
+      color: #8a958e;
+
+      font-size: 11px;
+
+      margin-top: 18px;
+    }
+
+    /* --------------------------------
+       MOBILE
+    -------------------------------- */
+
+    @media (max-width: 600px) {
+
+      body {
+        padding: 24px 12px;
+      }
+
+      .brand {
+        margin-bottom: 22px;
+      }
+
+      .logo {
+        width: 58px;
+        height: 58px;
+
+        border-radius: 16px;
+
+        font-size: 28px;
+
+        margin-bottom: 14px;
+      }
+
+      .brand-name {
+        font-size: 27px;
+      }
+
+      .tagline {
+        font-size: 13px;
+      }
+
+      .card {
+        padding: 24px 18px;
+
+        border-radius: 20px;
+      }
+
+      .intro {
+        padding-bottom: 21px;
+
+        margin-bottom: 24px;
+      }
+
+      .question {
+        margin-bottom: 23px;
+      }
+
+      .question-title {
+        font-size: 14px;
+      }
+
+      .option label {
+        min-height: 47px;
+
+        padding: 11px 13px;
+
+        font-size: 13px;
+      }
+
+      .text-input {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+
+
+<body>
+
+  <main class="page">
+
+    <!-- BRAND -->
+    <header class="brand">
+
+      <h1 class="brand-name">
+        Ma Haysaa? - Market Analyses
+      </h1>
+
+      <p class="tagline">
+        Si fudud u ogow meesha laga heli karo daawada aad raadinayso.
+      </p>
+
+    </header>
+
+
+    <!-- CARD -->
+    <section class="card">
+
+      <!-- INTRO -->
+      <div class="intro">
+
+        <h2 class="intro-title">
+          Waxaan rabnaa ra'yigaaga
+        </h2>
+
+        <p class="intro-text">
+          Waxaan baaraynaa fikrad cusub oo dadka ka caawin karta
+          inay si fudud u helaan daawooyinka ay raadinayaan.
+          Sahanku wuxuu qaadanayaa wax ka yar hal daqiiqo.
+        </p>
+
+      </div>
+
+
+      <!-- FORM -->
+      <form
+        id="maHaysaaForm"
+        action="https://formspree.io/f/xrpglpgk"
+        method="POST"
+      >
+
+        <!-- ROLE -->
+        <div class="question">
+
+          <label class="question-title">
+            1. Adigu ma macaamiil ayaad tahay mise milkiile/shaqeele farmashiye?
+            <span class="required">*</span>
+          </label>
+
+          <div class="options">
+
+            <div class="option">
+              <input
+                type="radio"
+                id="consumer"
+                name="user_type"
+                value="Consumer"
+                required
+              >
+
+              <label for="consumer">
+                👤 Macmiil / Qof daawo raadiya
+              </label>
+            </div>
+
+
+            <div class="option">
+              <input
+                type="radio"
+                id="pharmacy-owner"
+                name="user_type"
+                value="Pharmacy Owner or Manager"
+              >
+
+              <label for="pharmacy-owner">
+                💊 Milkiile/Shaqaale Farmashiye
+              </label>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- ==========================
+             CONSUMER SECTION
+        =========================== -->
+
+        <div
+          id="consumerSection"
+          class="conditional-section hidden"
+        >
+
+          <div class="question">
+
+            <label class="question-title">
+              2. Haddii aad heli lahayd app kuu sheegayo farmashiyaha
+              haya daawada aad raadinayso, ma isticmaali lahayd?
+              <span class="required">*</span>
+            </label>
+
+            <div class="options">
+
+              <div class="option">
+                <input
+                  type="radio"
+                  id="consumer-yes"
+                  name="consumer_would_use"
+                  value="Haa, hubaal"
+                >
+
+                <label for="consumer-yes">
+                  ✅ Haa, Waan Hubaa.
+                </label>
+              </div>
+
+
+              <div class="option">
+                <input
+                  type="radio"
+                  id="consumer-probably"
+                  name="consumer_would_use"
+                  value="Malaha waan isticmaali lahaa"
+                >
+
+                <label for="consumer-probably">
+                  👍 Malaha waan isticmaali lahaa
+                </label>
+              </div>
+
+
+              <div class="option">
+                <input
+                  type="radio"
+                  id="consumer-unsure"
+                  name="consumer_would_use"
+                  value="Ma hubo"
+                >
+
+                <label for="consumer-unsure">
+                  🤔 Ma hubo
+                </label>
+              </div>
+
+
+              <div class="option">
+                <input
+                  type="radio"
+                  id="consumer-no"
+                  name="consumer_would_use"
+                  value="Maya"
+                >
+
+                <label for="consumer-no">
+                  ❌ Maya
+                </label>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- QUESTION 3 -->
+
+          <div class="question">
+
+            <label class="question-title">
+              3. Ma u aragtaa adeeggan inuu faa'iido u leeyahay bulshada Soomaaliyeed?
+              <span class="required">*</span>
+            </label>
+
+            <div class="options">
+
+              <div class="option">
+                <input
+                  type="radio"
+                  id="consumer-high-benefit"
+                  name="consumer_benefit"
+                  value="Aad ayuu faa'iido ugu leeyahay"
+                >
+
+                <label for="consumer-high-benefit">
+                  🔥 Haa, Aad ayuu faa'iido ugu leeyahay
+                </label>
+              </div>
+
+
+              <div class="option">
+                <input
+                  type="radio"
+                  id="consumer-benefit"
+                  name="consumer_benefit"
+                  value="Waan u malaynayaa inuu faa'iido leeyahay"
+                >
+
+                <label for="consumer-benefit">
+                  👍 Waan u malaynayaa inuu faa'iido leeyahay
+                </label>
+              </div>
+
+
+              <div class="option">
+                <input
+                  type="radio"
+                  id="consumer-unsure-benefit"
+                  name="consumer_benefit"
+                  value="Ma hubo"
+                >
+
+                <label for="consumer-unsure-benefit">
+                  🤔 Ma hubo
+                </label>
+              </div>
+
+
+              <div class="option">
+                <input
+                  type="radio"
+                  id="consumer-no-benefit"
+                  name="consumer_benefit"
+                  value="Maya"
+                >
+
+                <label for="consumer-no-benefit">
+                  ❌ Maya
+                </label>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- QUESTION 4 — ONLY SHOWN FOR POSITIVE ANSWERS -->
+
+          <div
+            class="question hidden conditional-section"
+            id="consumerFeatureQuestion"
+          >
+
+            <label class="question-title">
+              4. Maxaad ugu aragtaa inuu faa'iido kuu leeyahay?
+            </label>
+
+            <div class="options">
+
+              <div class="option">
+                <input
+                  type="checkbox"
+                  id="consumer-feature-availability"
+                  name="consumer_important_feature"
+                  value="Knowing which pharmacy has the medicine"
+                >
+
+                <label for="consumer-feature-availability">
+                  🔎 Inaan ogaado farmashiye haaya daawada
+                </label>
+              </div>
+
+
+              <div class="option">
+                <input
+                  type="checkbox"
+                  id="consumer-feature-location"
+                  name="consumer_important_feature"
+                  value="Finding the nearest pharmacy"
+                >
+
+                <label for="consumer-feature-location">
+                  📍 Inaan helo farmashiyaha igu dhow ee haaya daawada
+                </label>
+              </div>
+
+
+              <div class="option">
+                <input
+                  type="checkbox"
+                  id="consumer-feature-price"
+                  name="consumer_important_feature"
+                  value="Seeing medicine prices"
+                >
+
+                <label for="consumer-feature-price">
+                  💰 Inaan arko qiimaha daawada
+                </label>
+              </div>
+
+
+              <div class="option">
+                <input
+                  type="checkbox"
+                  id="consumer-feature-time"
+                  name="consumer_important_feature"
+                  value="Saving time"
+                >
+
+                <label for="consumer-feature-time">
+                  ⏱️ Inaan waqti ku lumin raadinta daawada
+                </label>
+              </div>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+
+        <!-- ==========================
+             PHARMACY SECTION
+        =========================== -->
+
+        <div
+          id="pharmacySection"
+          class="conditional-section hidden"
+        >
+
+          <div class="question">
+
+            <label class="question-title">
+              2. Macaamiishu ma ku weydiiyaan
+              “Ma haysaan dawadan?”
+              <span class="required">*</span>
+            </label>
+
+            <div class="options">
+
+              <div class="option">
+                <input
+                  type="radio"
+                  id="pharmacy-daily"
+                  name="pharmacy_customer_requests"
+                  value="Maalin kasta"
+                >
+
+                <label for="pharmacy-daily">
+                  🔥 Haa, maalin kasta
+                </label>
+              </div>
+
+
+              <div class="option">
+                <input
+                  type="radio"
+                  id="pharmacy-weekly"
+                  name="pharmacy_customer_requests"
+                  value="Dhowr jeer usbuucii"
+                >
+
+                <label for="pharmacy-weekly">
+                  👍 Dhowr jeer usbuucii
+                </label>
+              </div>
+
+
+              <div class="option">
+                <input
+                  type="radio"
+                  id="pharmacy-sometimes"
+                  name="pharmacy_customer_requests"
+                  value="Mararka qaar"
+                >
+
+                <label for="pharmacy-sometimes">
+                  🤔 Mararka qaar
+                </label>
+              </div>
+
+
+              <div class="option">
+                <input
+                  type="radio"
+                  id="pharmacy-never"
+                  name="pharmacy_customer_requests"
+                  value="Maya"
+                >
+
+                <label for="pharmacy-never">
+                  ❌ Maya
+                </label>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="question">
+
+            <label class="question-title">
+              3. Haddii qof raadinaya daawo aad haysaan
+              si toos ah lagugu soo xiriirin lahaa, ma isticmaali lahayd App-ka?
+              <span class="required">*</span>
+            </label>
+
+            <div class="options">
+
+              <div class="option">
+                <input
+                  type="radio"
+                  id="pharmacy-use-yes"
+                  name="pharmacy_would_use"
+                  value="Haa, hubaal"
+                >
+
+                <label for="pharmacy-use-yes">
+                  ✅ Haa, Waan Hubaa
+                </label>
+              </div>
+
+
+              <div class="option">
+                <input
+                  type="radio"
+                  id="pharmacy-use-probably"
+                  name="pharmacy_would_use"
+                  value="Malaha"
+                >
+
+                <label for="pharmacy-use-probably">
+                  👍 Haa Waan U Maleena.
+                </label>
+              </div>
+
+
+              <div class="option">
+                <input
+                  type="radio"
+                  id="pharmacy-use-unsure"
+                  name="pharmacy_would_use"
+                  value="Ma hubo"
+                >
+
+                <label for="pharmacy-use-unsure">
+                  🤔 Ma hubo
+                </label>
+              </div>
+
+
+              <div class="option">
+                <input
+                  type="radio"
+                  id="pharmacy-use-no"
+                  name="pharmacy_would_use"
+                  value="Maya"
+                >
+
+                <label for="pharmacy-use-no">
+                  ❌ Maya
+                </label>
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="question">
+
+            <label class="question-title">
+              4. Maxaad ugu aragtaa inuu farmashiyehaaga
+              kuugu faa'iido badan yahay?
+            </label>
+
+            <div class="options">
+
+              <div class="option">
+                <input
+                  type="checkbox"
+                  id="pharmacy-benefit-customers"
+                  name="pharmacy_important_benefit"
+                  value="Getting new customers"
+                >
+
+                <label for="pharmacy-benefit-customers">
+                  👥 Helitaanka macaamiil cusub
+                </label>
+              </div>
+
+
+              <div class="option">
+                <input
+                  type="checkbox"
+                  id="pharmacy-benefit-demand"
+                  name="pharmacy_important_benefit"
+                  value="Knowing what medicines customers are looking for"
+                >
+
+                <label for="pharmacy-benefit-demand">
+                  💊 Ogaanshaha daawooyinka la raadinayo
+                </label>
+              </div>
+
+
+              <div class="option">
+                <input
+                  type="checkbox"
+                  id="pharmacy-benefit-visibility"
+                  name="pharmacy_important_benefit"
+                  value="Getting more visibility"
+                >
+
+                <label for="pharmacy-benefit-visibility">
+                  📍 In dadku ogaadaan farmashiyehayga
+                </label>
+              </div>
+
+
+              <div class="option">
+                <input
+                  type="checkbox"
+                  id="pharmacy-benefit-sales"
+                  name="pharmacy_important_benefit"
+                  value="Increasing sales"
+                >
+
+                <label for="pharmacy-benefit-sales">
+                  📈 Inaan kordhiyo iibka
+                </label>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- ==========================
+             TESTING
+        =========================== -->
+
+        <div
+          id="testingSection"
+          class="hidden conditional-section"
+        >
+
+          <div class="section-divider"></div>
+
+          <div class="question">
+
+            <label class="question-title">
+              Ma jeclaan lahayd inaad noqoto qof ka mid ah
+              dadka ugu horreeya ee tijaabiya
+              <strong>App-ka</strong> marka uu Google Play Store
+              la soo geliyo?
+              <span class="required">*</span>
+            </label>
+
+            <div class="options">
+
+              <div class="option">
+                <input
+                  type="radio"
+                  id="testing-yes"
+                  name="beta_testing"
+                  value="Yes"
+                >
+
+                <label for="testing-yes">
+                  🚀 Haa, waan rabaa
+                </label>
+              </div>
+
+
+              <div class="option">
+                <input
+                  type="radio"
+                  id="testing-no"
+                  name="beta_testing"
+                  value="No"
+                >
+
+                <label for="testing-no">
+                  Maya, Ma Rabo
+                </label>
+              </div>
+
+            </div>
+
+
+            <!-- TESTER DETAILS -->
+            <div
+              id="testerDetails"
+              class="tester-box hidden"
+            >
+
+              <div class="tester-box-title">
+                🚀 Ku soo biir tijaabada hore
+              </div>
+
+              <p class="tester-box-text">
+                Haddii aad doorato inaad tijaabiso,
+                waan kula soo xiriiri doonaa marka
+                App-ku diyaar u noqdo tijaabada.
+              </p>
+
+
+              <div class="question">
+
+                <label
+                  class="question-title"
+                  for="testerName"
+                >
+                  Magacaaga
+                  <span class="required">*</span>
+                </label>
+
+                <input
+                  type="text"
+                  id="testerName"
+                  name="tester_name"
+                  class="text-input"
+                  placeholder="Magacaaga"
+                >
+
+              </div>
+
+
+              <div class="question">
+
+                <label
+                  class="question-title"
+                  for="testerEmail"
+                >
+                  Email-kaaga
+                  <span class="required">*</span>
+                </label>
+
+                <input
+                  type="email"
+                  id="testerEmail"
+                  name="tester_email"
+                  class="text-input"
+                  placeholder="example@email.com"
+                >
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- ==========================
+             OPTIONAL FEEDBACK
+        =========================== -->
+
+        <div
+          id="feedbackSection"
+          class="hidden conditional-section"
+        >
+
+          <div class="question">
+
+            <label
+              class="question-title"
+              for="feedback"
+            >
+              Ma jirtaa wax kale oo aad jeclaan lahayd
+              inaan ku darno?
+            </label>
+
+            <textarea
+              id="feedback"
+              name="additional_feedback"
+              class="text-input"
+              placeholder="Fikirkaaga waa muhiim..."
+            ></textarea>
+
+          </div>
+
+        </div>
+
+
+        <!-- SUBMIT -->
+        <div
+          id="submitArea"
+          class="hidden"
+        >
+
+          <div class="submit-area">
+
+            <button
+              type="submit"
+              id="submitButton"
+              class="submit-btn"
+            >
+              Gudbi jawaabta
+            </button>
+
+            <p class="privacy-note">
+              Xogtaada waxaa loo isticmaali doonaa oo keliya
+              ujeedada sahankan iyo xiriirka tijaabada hore.
+            </p>
+
+          </div>
+
+        </div>
+
+      </form>
+
+
+      <!-- ==========================
+           SUCCESS
+      =========================== -->
+
+      <div
+        id="successMessage"
+        class="success hidden"
+      >
+
+        <div class="success-icon">
+          ✓
+        </div>
+
+        <h2 class="success-title">
+          Mahadsanid!
+        </h2>
+
+        <p class="success-text">
+          Jawaabtaada si guul leh ayaa loo helay.
+          Fikirkaaga wuxuu naga caawinayaa inaan ogaano
+          haddii <strong>App-ku</strong> uu dhab ahaan
+          xal u noqon karo dadka iyo farmashiyada.
+        </p>
+
+        <div class="success-badge">
+          ✓ Jawaabta waa la helay
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <p class="footer">
+      Ma Haysaa? &nbsp;•&nbsp; Waxaan u dhiseynaa si aan u fududeyno helitaanka daawooyinka.
+    </p>
+
+  </main>
+
+
+  <script>
+
+    /*
+     * ELEMENTS
+     */
+
+    const form =
+      document.getElementById("maHaysaaForm");
+
+    const consumerSection =
+      document.getElementById("consumerSection");
+
+    const pharmacySection =
+      document.getElementById("pharmacySection");
+
+    const testingSection =
+      document.getElementById("testingSection");
+
+    const testerDetails =
+      document.getElementById("testerDetails");
+
+    const feedbackSection =
+      document.getElementById("feedbackSection");
+
+    const submitArea =
+      document.getElementById("submitArea");
+
+    const successMessage =
+      document.getElementById("successMessage");
+
+    const submitButton =
+      document.getElementById("submitButton");
+
+    const testerName =
+      document.getElementById("testerName");
+
+    const testerEmail =
+      document.getElementById("testerEmail");
+
+
+    /*
+     * ROLE SELECTION
+     */
+
+    document
+      .querySelectorAll('input[name="user_type"]')
+      .forEach(input => {
+
+        input.addEventListener("change", function () {
+
+          const consumer =
+            this.value === "Consumer";
+
+          const pharmacy =
+            this.value === "Pharmacy Owner or Manager" ||
+            this.value === "Pharmacy Worker";
+
+
+          /*
+           * Show correct section
+           */
+
+          consumerSection.classList.toggle(
+            "hidden",
+            !consumer
+          );
+
+          pharmacySection.classList.toggle(
+            "hidden",
+            !pharmacy
+          );
+
+
+          /*
+           * Show remaining questions
+           */
+
+          testingSection.classList.remove("hidden");
+
+          feedbackSection.classList.remove("hidden");
+
+          submitArea.classList.remove("hidden");
+
+
+          /*
+           * Required fields
+           */
+
+          setRadioRequired(
+            "consumer_would_use",
+            consumer
+          );
+
+          setRadioRequired(
+            "consumer_benefit",
+            consumer
+          );
+
+          setRadioRequired(
+            "pharmacy_customer_requests",
+            pharmacy
+          );
+
+          setRadioRequired(
+            "pharmacy_would_use",
+            pharmacy
+          );
+
+        });
+
+      });
+
+
+    /*
+     * TESTING SELECTION
+     */
+
+    document
+      .querySelectorAll('input[name="beta_testing"]')
+      .forEach(input => {
+
+        input.addEventListener("change", function () {
+
+          const wantsTesting =
+            this.value === "Yes";
+
+
+          testerDetails.classList.toggle(
+            "hidden",
+            !wantsTesting
+          );
+
+
+          testerName.required =
+            wantsTesting;
+
+          testerEmail.required =
+            wantsTesting;
+
+        });
+
+      });
+
+
+    /*
+     * RADIO REQUIRED HELPER
+     */
+
+    function setRadioRequired(
+      name,
+      required
+    ) {
+
+      const fields =
+        document.querySelectorAll(
+          `input[name="${name}"]`
+        );
+
+
+      fields.forEach(field => {
+
+        field.required =
+          required;
+
+      });
+
+    }
+
+
+    /*
+     * SUBMIT TO FORMSPREE
+     */
+
+    form.addEventListener(
+      "submit",
+      async function(event) {
+
+        event.preventDefault();
+
+
+        submitButton.disabled = true;
+
+        submitButton.textContent =
+          "La dirayaa...";
+
+
+        try {
+
+          const response =
+            await fetch(
+              form.action,
+              {
+                method: "POST",
+
+                body:
+                  new FormData(form),
+
+                headers: {
+                  "Accept":
+                    "application/json"
+                }
+              }
+            );
+
+
+          if (!response.ok) {
+
+            throw new Error(
+              "Form submission failed"
+            );
+
+          }
+
+
+          /*
+           * Hide form
+           */
+
+          form.classList.add(
+            "hidden"
+          );
+
+
+          /*
+           * Show success
+           */
+
+          successMessage.classList.remove(
+            "hidden"
+          );
+
+
+          /*
+           * Scroll nicely
+           */
+
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+          });
+
+
+        } catch (error) {
+
+          alert(
+            "Waan ka xunnahay. Jawaabta lama diri karin. Fadlan isku day mar kale."
+          );
+
+
+          submitButton.disabled =
+            false;
+
+          submitButton.textContent =
+            "Gudbi jawaabta";
+
+        }
+
+      }
+    );
+
+    const consumerBenefitInputs =
+      document.querySelectorAll(
+        'input[name="consumer_benefit"]'
+      );
+
+    const consumerFeatureQuestion =
+      document.getElementById(
+        "consumerFeatureQuestion"
+      );
+
+    const consumerFeatureInputs =
+      document.querySelectorAll(
+        'input[name="consumer_important_feature"]'
+      );
+
+
+    consumerBenefitInputs.forEach(input => {
+
+      input.addEventListener("change", function () {
+
+        const positiveAnswer =
+          this.id === "consumer-high-benefit" ||
+          this.id === "consumer-benefit";
+
+
+        if (positiveAnswer) {
+
+          // Show Question 4
+          consumerFeatureQuestion.classList.remove(
+            "hidden"
+          );
+
+        } else {
+
+          // Hide Question 4
+          consumerFeatureQuestion.classList.add(
+            "hidden"
+          );
+
+          // Clear any previous selections
+          consumerFeatureInputs.forEach(feature => {
+            feature.checked = false;
+          });
+
+        }
+
+      });
+
+    });
+
+  </script>
+
+</body>
+</html>
